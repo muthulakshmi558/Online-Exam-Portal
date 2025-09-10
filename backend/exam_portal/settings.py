@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-4bzs+7=g6ek@11=39zumks#kgbjnto%4f_a4qm^@t9$k@bdm18'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['online-exam-portal-2-t2vs.onrender.com', 'localhost', '127.0.0.1']
 
