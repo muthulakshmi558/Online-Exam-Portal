@@ -23,9 +23,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-4bzs+7=g6ek@11=39zumks#kgbjnto%4f_a4qm^@t9$k@bdm18'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['online-exam-portal-2-t2vs.onrender.com', 'localhost', '127.0.0.1']
 
 
 # Application definition
@@ -43,8 +43,9 @@ INSTALLED_APPS = [
     # Local
     'exams',
 ]
-CORS_ALLOW_ALL_ORIGINS = True  # Dev only, later restrict to frontend URL
-
+CORS_ALLOWED_ORIGINS = [
+    "https://online-exam-portal-gst6.vercel.app",
+]
 # DRF + JWT
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
@@ -139,9 +140,14 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
+import os
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
+
+# This is required for collectstatic on Render
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 AUTH_USER_MODEL = "exams.User"
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
