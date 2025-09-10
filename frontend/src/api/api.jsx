@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: "http://127.0.0.1:8000/api/",
+  baseURL: "https://online-exam-portal-2-t2vs.onrender.com/api/",
 });
 
 api.interceptors.request.use(config => {
@@ -15,7 +15,7 @@ export default api;
 
 async function login(username, password) {
   try {
-    const res = await axios.post("http://127.0.0.1:8000/api/token/", {
+    const res = await axios.post("https://online-exam-portal-2-t2vs.onrender.com/api/token/", {
       username,
       password
     });
